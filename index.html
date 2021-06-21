@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        /*----------------------1st function----------------*/
+
+        function sumUp() {
+            let counter = 0;
+
+            return function(value = 1) {
+                return counter += value;
+            }
+        }
+
+        let sum1 = sumUp();
+        let sum2 = sumUp();
+
+        console.log(sum1(3));
+        console.log(sum1(5));
+        console.log(sum1(20));
+        console.log(sum2(1));
+        console.log(sum2(2));
+        console.log(sum2(3));
+
+
+        console.log(`=======================================`);
+        /*----------------------2nd function----------------*/
+        console.log(`=======================================`);
+        
+        function createCounter(startFrom = 0, step = 1) {
+            let num = startFrom;
+            
+            function increase() {
+                return num += step;
+            }
+            
+            increase.reboot = function() {
+                return num = startFrom + step;
+            }
+            
+            return increase;
+        }
+
+        let facebook = createCounter(1000, 10);
+        let instagram = createCounter(10, 5);
+
+
+
+        
+        console.log(facebook());
+        console.log(facebook());
+        console.log(facebook());
+        console.log(facebook());
+        console.log(facebook.reboot(), 'reboot facebook');
+        console.log(facebook());
+        console.log(facebook());
+        console.log(facebook());
+        console.log(facebook());
+        console.log(instagram());
+        console.log(instagram());
+        console.log(instagram());
+        console.log(instagram());
+        console.log(instagram.reboot(), 'reboot instagram');
+        console.log(instagram());
+        console.log(instagram());
+        console.log(instagram());
+        console.log(facebook());
+        console.log(facebook());
+        console.log(facebook.reboot(), 'reboot facebook');
+        console.log(instagram());
+
+    </script>
+
+</body>
+</html>
